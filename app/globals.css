@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Design tokens — RETIRO TECH (PRD §8). Use these via Tailwind classes
+   (bg-bg, bg-surface, text-accent, border-line…), never raw hex in components. */
+@theme inline {
+  --color-bg: #0b0d10;
+  --color-bg-alt: #0f1216;
+  --color-surface: #13171c;
+  --color-line: #1e232a;
+  --color-line-2: #252b33;
+  --color-line-3: #343b44;
+  --color-text: #f2f4f5;
+  --color-text-2: #c7cdd3;
+  --color-text-3: #aeb6bf;
+  --color-muted: #8c95a0;
+  --color-accent: #3ef08b;
+  --color-cyan: #5eead4;
+  --color-lime: #a3e635;
+  --color-blue: #60a5fa;
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --radius-btn: 10px;
+  --radius-card: 16px;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
